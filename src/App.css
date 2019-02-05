@@ -1,0 +1,54 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+.App {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Login {
+  border-radius: 15px;
+  background-color: #383D47;
+  width: 25%;
+  min-height: 50%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.login-title {
+  margin-bottom: 20px;
+}
+
+.login-item {
+  padding: 10px;
+  margin: 10px;
+  width: 50%;
+  flex: 1;
+}
+
+.login-button {
+  margin-top: 10px;
+  width: 25%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.login-button:hover {
+  cursor: pointer;
+  border: 2px solid black;
+}

@@ -1,27 +1,30 @@
+// src/App.js
+
 import React, { Component } from 'react';
-import axios from 'axios';
-import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Security, SecureRoute, ImplicitCallback } from '@okta/okta-react';
+import Home from './views/Home';
+import Login from './views/Login';
 
-class Login extends Component {
-  componentDidMount() {
-    axios.get("/ping")
-      .then((data) => console.log(data));
-  }
+function onAuthRequired({ history }) {
+  history.push('/login');
+}
 
+class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="login-title">
-          SITE NAME HERE
-        </div>
-        <div className="Login">
-          <input className="login-item" type={"textbox"} placeholder={"Username"}></input>
-          <input className="login-item" type={"textbox"} placeholder={"Password"}></input>
-          <button className="login-button">SIGN IN</button>
-        </div>
-      </div>
+      <Router>
+        <Security issuer='https://dev-456973.oktapreview.com/oauth2/default'
+          client_id='0oaj96clonR2R855g0h7'
+          redirect_uri={window.location.origin + '/implicit/callback'}
+          onAuthRequired={onAuthRequired} >
+          <Route path='/' exact={true} component={Home} />
+          <Route path='/login' render={() => <Login baseUrl='https://dev-456973.oktapreview.com' />} />
+          <Route path='/implicit/callback' component={ImplicitCallback} />
+        </Security>
+      </Router>
     );
   }
 }
 
-export default Login;
+export default App;

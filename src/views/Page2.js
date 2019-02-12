@@ -8,7 +8,7 @@ export default class Page2 extends React.Component {
 
     render() {
         return (
-            <div>PAGE 1</div>
+            <div>PAGE 2</div>
         )
     }
 }

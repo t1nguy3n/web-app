@@ -15,7 +15,7 @@ export default withAuth(class Home extends Component {
 
     render() {
         const MenuItem = withRouter(({ history }) => {
-            <div onClick={() => history.push("/page1")} className="header-item">Home</div>
+            <div onClick={() => { history.push("/page1") }} className="header-item">Home</div>;
         });
 
         return (

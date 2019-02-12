@@ -1,0 +1,23 @@
+.header {
+    width: 100%;
+    background-color: rgb(66, 66, 66);
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-content: center;
+}
+
+.header-item {
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 8px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+}
+
+.header-item:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}

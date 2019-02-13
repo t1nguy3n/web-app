@@ -1,0 +1,32 @@
+.job-wrapper {
+    width: 100%;
+    height: 92%;
+    display: flex;
+    overflow: hidden;
+}
+
+.job-preview-container {
+    width: 25%;
+    height: 100%;
+    padding-left: 15px;
+    padding-top: 15px;
+    border: 1.5px solid black;
+    border-top: none;
+    overflow-y: scroll;
+}
+
+.job-preview-item {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: .5px solid black;
+}
+
+.job-preview-item:last-child {
+    border: none;
+    padding-bottom: 15px;
+}
+
+.job-preview-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}

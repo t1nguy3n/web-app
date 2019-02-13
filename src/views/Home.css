@@ -1,5 +1,6 @@
 .header {
     width: 100%;
+    height: 8%;
     background-color: rgb(66, 66, 66);
     display: flex;
     justify-content: space-between;
@@ -9,7 +10,6 @@
 .header-item {
     width: 100%;
     padding: 20px;
-    height: 100%;
     color: white;
     text-align: center;
     font-size: 1em;
@@ -20,4 +20,8 @@
     background-color: rgb(110, 110, 110);
     color: white;
     cursor: pointer;
+}
+
+.header-item-active {
+    border-bottom: 4px solid cyan;
 }

@@ -2,13 +2,15 @@ import React from 'react';
 import axios from 'axios';
 
 import { JobPreview } from './components/JobPreview';
+import { JobDetailedContainer } from './components/JobDetailed';
 import './Jobs.css';
 
-export default class Page1 extends React.Component {
+export default class Jobs extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             jobList: [],
+            clickedJob: {},
             loading: false
         };
     }
@@ -16,9 +18,12 @@ export default class Page1 extends React.Component {
     componentDidMount() {
         axios.get('/api/jobs')
             .then((res) => {
-                console.log(res);
-                this.setState({ jobList: res.data });
+                this.setState({ jobList: res.data, clickedJob: res.data[0] });
             });
+    }
+
+    setJobClickedOn = (jobClickedOn) => {
+        this.setState({ clickedJob: jobClickedOn });
     }
 
     toggleLoading = () => {
@@ -32,8 +37,15 @@ export default class Page1 extends React.Component {
         return (
             <div className="job-wrapper">
                 <div className="job-preview-container">
-                    {jobList.map((listing) => <JobPreview jobListing={listing} />)}
+                    {jobList.map((listing) => 
+                        <JobPreview 
+                            key={listing.id} 
+                            jobListing={listing} 
+                            onClick={() => this.setJobClickedOn(listing)} 
+                        />
+                    )}
                 </div>
+                <JobDetailedContainer jobDetails={this.state.clickedJob} />
             </div>
         )
     }

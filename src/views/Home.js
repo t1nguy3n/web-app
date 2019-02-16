@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-// import { withAuth } from '@okta/okta-react';
 
 import "./Home.css";
 
@@ -8,10 +7,6 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {};
-    }
-
-    componentDidMount() {
-        console.log(this.props);
     }
 
     changePage = (path) => {

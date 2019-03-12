@@ -28,7 +28,7 @@ class Home extends Component {
                     <i className="fas fa-briefcase fa-2x" />&nbsp;
                     Jobs
                 </div>
-                <div onClick={() => this.changePage("/page3")} className={buttonClassname("/page3")}>
+                <div onClick={() => this.changePage("/profile")} className={buttonClassname("/profile")}>
                     <i className="fas fa-user-circle fa-2x" />&nbsp;
                     Profile
                 </div>

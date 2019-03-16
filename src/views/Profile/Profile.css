@@ -33,7 +33,56 @@
 
 .info {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     font-size: 16pt;
-    text-align: center;
+}
+
+.info-flex {
+    display: flex;
+    width: 90% !important;
+    margin-bottom: 10px;
+}
+
+.info-flex div {
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-radius: 15px;
+    background-color: rgb(245, 245, 245);
+    margin-bottom: 2px;
+}
+
+.info-flex i:hover {
+    cursor: pointer;
+}
+
+.info-flex-button {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: middle;
+    padding-bottom: 50px;
+}
+
+.info-flex-button input {
+    border: 2px solid black;
+    font-size: 15pt;
+    border-radius: 15px;
+    background-color: white;
+}
+
+.upload-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-flex span {
+    margin-bottom: 10px;
 }

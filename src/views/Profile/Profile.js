@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
+import swal from 'sweetalert';
 
 import male from '../../images/male.png'
-import female from '../../images/female.png'
 import './Profile.css';
+
+// react-geosuggest
 
 export default class Profile extends React.Component {
     constructor(props) {
@@ -13,7 +15,8 @@ export default class Profile extends React.Component {
             email: "sample@email.com",
             editFirst: false,
             editLast: false,
-            editEmail: false
+            editEmail: false,
+            resumeUploaded: false
         };
     }
 
@@ -21,6 +24,11 @@ export default class Profile extends React.Component {
         const temp = {};
         temp[boxType] = e.target.value;
         this.setState(temp);
+    }
+
+    showSuccessAlert = () => {
+        swal("Upload Successful!", "", "success");
+        this.setState({ resumeUploaded: true });
     }
 
     render() {
@@ -43,7 +51,7 @@ export default class Profile extends React.Component {
                 <div>
                     {firstName}
                     &nbsp;&nbsp;
-                <i className="fas fa-pencil-alt" onClick={() => this.setState({ editFirst: true })} />
+                    <i className="fas fa-pencil-alt" onClick={() => this.setState({ editFirst: true })} />
                 </div>
             );
         }
@@ -65,7 +73,7 @@ export default class Profile extends React.Component {
                 <div>
                     {lastName}
                     &nbsp;&nbsp;
-                <i className="fas fa-pencil-alt" onClick={() => this.setState({ editLast: true })} />
+                    <i className="fas fa-pencil-alt" onClick={() => this.setState({ editLast: true })} />
                 </div>
             );
         }
@@ -87,7 +95,24 @@ export default class Profile extends React.Component {
                 <div>
                     {email}
                     &nbsp;&nbsp;
-                <i className="fas fa-pencil-alt" onClick={() => this.setState({ editEmail: true })} />
+                    <i className="fas fa-pencil-alt" onClick={() => this.setState({ editEmail: true })} />
+                </div>
+            );
+        }
+
+        const uploadButton = () => {
+            const { resumeUploaded } = this.state;
+
+            if (resumeUploaded) {
+                return (
+                    <span>We have your resume on file!</span>
+                );
+            }
+
+            return (
+                <div className="upload-flex">
+                    <span>Resume</span>
+                    <input type="file" onChange={() => this.showSuccessAlert()} />
                 </div>
             );
         }
@@ -99,9 +124,18 @@ export default class Profile extends React.Component {
                         <img src={male} />
                     </div>
                     <div className="info">
-                        {firstNameBox()}
-                        {lastNameBox()}
-                        {emailBox()}
+                        <div className="info-flex">
+                            {firstNameBox()}
+                        </div>
+                        <div className="info-flex">
+                            {lastNameBox()}
+                        </div>
+                        <div className="info-flex">
+                            {emailBox()}
+                        </div>
+                        <div className="info-flex-button">
+                            {uploadButton()}
+                        </div>
                     </div>
                 </div>
             </div>

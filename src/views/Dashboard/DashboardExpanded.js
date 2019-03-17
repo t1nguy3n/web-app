@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class DashboardTile extends React.Component {
+export default class DashboardExpanded extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -16,16 +16,16 @@ export default class DashboardTile extends React.Component {
         const options = {
             hideTabs: true,
             hideToolbar: true,
-            width: 400,
-            height: 300
+            width: 1200,
+            height: 600
         };
         const viz = new tableau.Viz(vizContainer, url, options);
     }
 
     render() {
         return (
-            <div className="tab-container">
-                <span onClick={() => console.log("clicked")}>EXPAND</span>
+            <div className="tab-expand-container">
+                <span onClick={() => this.props.close()}>CLICK TO CLOSE</span>
                 <div
                     className="tableau-embed-container"
                     ref={(div) => {

@@ -4,17 +4,17 @@ import swal from 'sweetalert';
 import male from '../../images/male.png'
 import './Profile.css';
 
-// react-geosuggest
-
 export default class Profile extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             firstName: "Kyle",
             lastName: "Surowiec",
+            location: "Chicago, IL",
             email: "email@example.com",
             editFirst: false,
             editLast: false,
+            editLocation: false,
             editEmail: false,
             resumeUploaded: false
         };
@@ -32,7 +32,7 @@ export default class Profile extends React.Component {
     }
 
     render() {
-        const { firstName, lastName, email } = this.state;
+        const { firstName, lastName, email, location } = this.state;
 
         const firstNameBox = () => {
             const { editFirst } = this.state;
@@ -74,6 +74,28 @@ export default class Profile extends React.Component {
                     {lastName}
                     &nbsp;&nbsp;
                     <i className="fas fa-pencil-alt" onClick={() => this.setState({ editLast: true })} />
+                </div>
+            );
+        }
+
+        const locationBox = () => {
+            const { editLocation } = this.state;
+
+            if (editLocation) {
+                return (
+                    <div>
+                        <input type="textbox" onChange={(e) => this.inputHandler(e, "location")} />
+                        &nbsp;&nbsp;
+                        <i className="fas fa-check-square" onClick={() => this.setState({ editLocation: false })} />
+                    </div>
+                )
+            }
+
+            return (
+                <div>
+                    {location}
+                    &nbsp;&nbsp;
+                    <i className="fas fa-pencil-alt" onClick={() => this.setState({ editLocation: true })} />
                 </div>
             );
         }
@@ -129,6 +151,9 @@ export default class Profile extends React.Component {
                         </div>
                         <div className="info-flex">
                             {lastNameBox()}
+                        </div>
+                        <div className="info-flex">
+                            {locationBox()}
                         </div>
                         <div className="info-flex">
                             {emailBox()}

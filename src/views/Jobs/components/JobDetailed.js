@@ -1,13 +1,19 @@
 import React from 'react';
+import swal from 'sweetalert';
+
+const showSuccessAlert = () => {
+    swal(
+        "",
+        "You've successfully applied for this job! We wen't ahead and attached your resume and relevant information. Good luck!",
+        "success"
+    );
+}
 
 export const JobDetailedContainer = ({ jobDetails }) => {
-    console.log(jobDetails);
-
     if (jobDetails.Position != undefined) {
         return (
             <div className="job-detailed-container">
-                <div className="detailed-header">
-                </div>
+                <div className="detailed-header" />
                 <div className="detailed-title">
                     {jobDetails.Position}
                 </div>
@@ -23,10 +29,10 @@ export const JobDetailedContainer = ({ jobDetails }) => {
                     <div className="detailed-snippet">
                         {jobDetails.Snippet}
                     </div>
-                    <button>APPLY NOW</button>
+                    <button onClick={showSuccessAlert}>APPLY NOW</button>
                 </div>
-            </div>    
-        )    
+            </div>
+        )
     }
 
     return <div />

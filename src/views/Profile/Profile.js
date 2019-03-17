@@ -12,7 +12,7 @@ export default class Profile extends React.Component {
         this.state = {
             firstName: "Kyle",
             lastName: "Surowiec",
-            email: "sample@email.com",
+            email: "email@example.com",
             editFirst: false,
             editLast: false,
             editEmail: false,

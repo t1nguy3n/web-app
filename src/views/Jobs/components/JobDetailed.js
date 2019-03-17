@@ -4,7 +4,7 @@ import swal from 'sweetalert';
 const showSuccessAlert = () => {
     swal(
         "",
-        "You've successfully applied for this job! We wen't ahead and attached your resume and relevant information. Good luck!",
+        "You've successfully applied for this job! We went ahead and attached your resume and relevant information. Good luck!",
         "success"
     );
 }

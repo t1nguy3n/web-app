@@ -1,2 +1,24 @@
-.tableau-embed-container {
+.tableau-flexbox {
+    height: 94%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tableau-flex-container {
+    width: 75%;
+    height: 95%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 50px;
+}
+
+.tableau-flex-item {
+    width: 400px;
+    height: 350px;
+    border: 3px solid black;
+    box-shadow: 5px 5px 5px rgb(177, 177, 177);
+    margin-bottom: 10px;
 }
